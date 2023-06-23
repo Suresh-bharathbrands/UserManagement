@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Profile{% endblock %}
+{% block head %}
+{% endblock %}
+{% block body %}
+<div class="card">
+    <div class="card-header">
+        <h3>Profile</h3>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group row">
+              <label for="profile_name" class="col-sm-2 col-form-label">Profile Name</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="profile_name" name="profile_name" Required>
+              </div>
+              <div class="col-sm-4">
+                <button type="submit" class="btn btn-success">Save</button>
+              </div>
+            </div>
+    
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Screen name</th>
+                    <th>Access</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td>Item</td>
+                    <td>
+                        <div class="form-check">
+                            <input class="form-check-input" name="access" type="checkbox" value="item_screen" id="item_screen">
+                            <label class="form-check-label" for="item_screen">
+                                Item Screen
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" name="access" type="checkbox" value="item_add" id="item_add">
+                            <label class="form-check-label" for="item_add">
+                                Item Add
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" name="access" type="checkbox" value="item_edit" id="item_edit">
+                            <label class="form-check-label" for="item_edit">
+                                Item edit
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" name="access" type="checkbox" value="item_view" id="item_view">
+                            <label class="form-check-label" for="item_view">
+                                Item view
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" name="access" type="checkbox" value="item_delete" id="item_delete">
+                            <label class="form-check-label" for="item_delete">
+                                Item delete
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Profile</td>
+                    <td>
+                        <div class="form-check">
+                            <input class="form-check-input" name="access" type="checkbox" value="profile_screen" id="profile_screen">
+                            <label class="form-check-label" for="profile_screen">
+                                Profile Screen
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" name="access" type="checkbox" value="profile_add" id="profile_add">
+                            <label class="form-check-label" for="profile_add">
+                                Profile Add
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" name="access" type="checkbox" value="profile_view" id="profile_view">
+                            <label class="form-check-label" for="profile_view">
+                                Profile View
+                            </label>
+                        </div>
+                      
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Create User</td>
+                    <td>
+                        <div class="form-check">
+                            <input class="form-check-input" name="access" type="checkbox" value="Create_user_screen" id="Create_user_screen">
+                            <label class="form-check-label" for="Create_user_screen">
+                                Create User Screen
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" name="access" type="checkbox" value="profile_add" id="Create_user_add">
+                            <label class="form-check-label" for="Create_user_add">
+                                Create User Add
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" name="access" type="checkbox" value="Create_user_view" id="Create_user_view">
+                            <label class="form-check-label" for="Create_user_view">
+                                Create User View
+                            </label>
+                        </div>
+                        
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </form>
+    </div>
+</div><br>
+{% endblock %}

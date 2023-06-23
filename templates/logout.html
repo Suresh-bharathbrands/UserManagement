@@ -1,0 +1,28 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Logout Page{% endblock %}
+{% block head %}
+
+
+
+{% endblock %}
+{% block body %}
+
+
+
+  <br>
+  <div class="card">
+    <form method="post" >
+      {% csrf_token %}
+
+      <div class="col-md-12">
+        You Logged Out
+      </div>
+      <a href="/">Back</a>
+    </form>
+
+  </div>
+  
+  {% endblock %}

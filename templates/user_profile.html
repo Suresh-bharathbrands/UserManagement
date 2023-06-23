@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Profile{% endblock %}
+{% block head %}
+{% endblock %}
+{% block body %}
+<div class="card">
+    <div class="card-header">
+        <h3>Profile</h3>
+        {% if 'profile_add' in access.user_profile.screen_access or request.user.is_superuser %}
+        <a href="/user_profile_save" class="btn btn-primary" style="float: right;"> Add</a>
+        {% endif %}
+    </div>
+    <div class="card-body">
+      
+      {% if 'profile_view' in access.user_profile.screen_access or request.user.is_superuser %}
+        <table class="table">
+            <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Profile Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for data in records %}
+
+              <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ data.profile_name}}</td>
+              </tr>
+              {% endfor %}
+
+                
+            </tbody>
+          </table>
+          {% endif %}
+    </div>
+  </div><br>
+{% endblock %}

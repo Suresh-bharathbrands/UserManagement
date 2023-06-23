@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Item{% endblock %}
+{% block head %}
+{% endblock %}
+{% block body %}
+<div class="container">
+
+    <div class="card">
+        <div class="card-header">
+            <h3>Item</h3>
+        </div>
+        <div class="card-body">
+          <form method="post">
+            {% csrf_token %}
+
+            {{form}}<br>
+            {% if 'item_add' in access.user_profile.screen_access or request.user.is_superuser %}
+            <button type="submit" class="btn btn-success">Save</button>
+            {% endif %}
+          </form>
+        </div>
+      </div><br>
+    <div class="card">
+        <div class="card-body">
+          {% if 'item_view' in access.user_profile.screen_access or request.user.is_superuser %}
+          <table class="table">
+            <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Notes</th>
+                <th colspan="2">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for view in view %}
+              {% if view.created_by == user %}
+
+              <tr>
+                <td>{{ view.S_no}}</td>
+                <td>{{ view.Notes}}</td>
+                {% if 'item_edit' in access.user_profile.screen_access or request.user.is_superuser %}
+                <td><a href="/item_edit/{{view.id}}" class="btn btn-info">Edit</a></td>
+                {% endif %}
+                {% if 'item_delete' in access.user_profile.screen_access or request.user.is_superuser %}
+                <td><a href="/item_delete/{{view.id}}" class="btn btn-danger">Delete</a></td>
+                {% endif %}
+              </tr>
+              {% endif %}
+              {% endfor %}
+
+                
+            </tbody>
+            {% endif %}
+          </table>
+        </div>
+      </div>
+</div>
+
+{% endblock %}
